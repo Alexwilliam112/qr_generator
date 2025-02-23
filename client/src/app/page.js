@@ -34,8 +34,10 @@ export default function QRCodeWithLogo() {
     const ctx = mainCanvas.getContext("2d");
     if (!ctx) return;
 
-    // Draw the QR code first
+    // Ensure the canvas is transparent
     ctx.clearRect(0, 0, mainCanvas.width, mainCanvas.height);
+
+    // Draw the QR code first
     ctx.drawImage(qrCanvas, 0, 0, mainCanvas.width, mainCanvas.height);
 
     // Draw the logo
@@ -85,6 +87,10 @@ export default function QRCodeWithLogo() {
             margin: 2,
             scale: 8,
             width: 300,
+            color: {
+              dark: "#000000", // Black QR code
+              light: "#FFFFFF00", // Transparent background
+            },
           }}
         />
       </div>
